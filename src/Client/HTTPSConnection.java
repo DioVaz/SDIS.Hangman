@@ -178,6 +178,7 @@ public class HTTPSConnection {
             
         } catch (KeyStoreException | IOException | NoSuchAlgorithmException | CertificateException | UnrecoverableKeyException | KeyManagementException ex) {
             System.out.println("Error when configuring the connection security or connecting (HTTPS Client).");
+            System.exit(-1);
         }
         return null;
     }

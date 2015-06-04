@@ -5,10 +5,8 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
-public class ClientThread extends Thread {
+class ClientThread extends Thread {
     protected int port_number;
     protected ServerSocket serverSocket;
     
@@ -34,6 +32,11 @@ public class ClientThread extends Thread {
                 String inputLine;
                 while ((inputLine = in.readLine()) != null) {
                     System.out.println(inputLine);
+                    if (inputLine.contains("logged in using the same account"))
+                        System.exit(0);
+                    if (inputLine.contains("STARTMATCH")) {
+                        
+                    }
                 }
                 in.close();
                 socket.close();

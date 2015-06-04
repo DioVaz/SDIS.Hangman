@@ -123,6 +123,9 @@ public class Server {
         int num_logins = logins.size();
         for (int i=0; i<num_logins; i++) {
             if (logins.get(i).getAccount().equals(account)) {
+                if (ip_address.equals(logins.get(i).getIPAddress()) && port_number==logins.get(i).getPortNumber())
+                    return true;
+                Notification.doubleLogin(logins.get(i).getIPAddress(), logins.get(i).getPortNumber(), ip_address, port_number);
                 logins.get(i).setIPAddress(ip_address);
                 logins.get(i).setPortNumber(port_number);
                 return true;
